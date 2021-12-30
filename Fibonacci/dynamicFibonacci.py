@@ -1,15 +1,10 @@
-# -*- coding: utf-8 -*-
 """
-Created on Sun Aug 29 18:24:52 2021
-
-@author: Marchiano
-
 Fibonacci function solved with dynamic programming (instances of same subproblems that make up a larger problems
 and use solution from first subproblem to solve identical future subproblems - technique is called
 memoization)
 
 """
-import time
+from time import perf_counter
 
 # best way to implement memoization: use fast-access data structure such as a HashMap equivalent
 # which is a dictionary in Python
@@ -36,10 +31,11 @@ print(fib(6)) # should return 8
 print(fib(7)) # should return 13
 print(fib(8)) # should reutrn 21
 
-# time code
-startTime = time.process_time()
+# time test
+startTime = perf_counter()
 print(fib(300))
-print("%.5f seconds" % (time.process_time() - startTime))
+endTime = perf_counter()
+print(f"Time test: {endTime - startTime:.5f} seconds")
 
 # memoizing makes the time complexity a linear one (O(n) time complexity) from an exponential one 
 # -> RUNS A LOT FASTER
